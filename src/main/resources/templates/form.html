@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title th:text="${titulo}"></title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3">
+                <form th:action="@{/form}" th:object="${usuario}" method="post">
+                    <h3 th:text="${titulo}" class="text-center"></h3>
+                    <div class="form-group row">
+                        <label for="identificador">Identificador</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="identificador" th:field="*{identificador}">
+                            <span th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nombre">Nombre</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="nombre" th:field="*{nombre}">
+                            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="apellido">Apellido</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="apellido" th:field="*{apellido}">
+                            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="username">Username</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="username" th:field="*{username}">
+                            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password">Password</label>
+                        <div class="col">
+                            <input class="form-control" type="password" th:field="*{password}" id="password">
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email">Correo</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="email" th:field="*{email}">
+                            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="cuenta">Cuenta</label>
+                        <div class="col">
+                            <input class="form-control" type="number" id="cuenta" th:field="*{cuenta}">
+                            <span th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fechaNacimiento">Fecha Nacimiento</label>
+                        <div class="col">
+                            <input class="form-control" type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}">
+                            <span th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></span>
+                        </div>
+                    </div>
+                    <div class="text-center"> <!-- Alineación del botón -->
+                        <button class="btn btn-primary text-center" type="submit" value="Enviar">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
